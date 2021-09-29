@@ -771,31 +771,6 @@ func reversePrefix(_ word: String, _ ch: Character) -> String {
 }
 ```
 
-### 1877. Minimize Maximum Pair Sum in Array
-
-Source: <https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/>
-
-Difficulty: Medium
-
-```swift
-func minPairSum(_ nums: [Int]) -> Int {
-
-    let halfCount = (nums.count+1)/2
-    let num = nums.sorted()
-    let firstHalf = num[0..<halfCount].sorted()
-    let secondHalf = num[halfCount..<nums.count].sorted(by: >)
-
-    var temp = [Int]()
-    
-    for i in 0..<halfCount {
-        temp.append(firstHalf[i] + secondHalf[i])
-    }
-        
-    return temp.max()!
-        
-}
-```
-
 ### 1572. Matrix Diagonal Sum
 
 Source: <https://leetcode.com/problems/matrix-diagonal-sum/>
@@ -1290,32 +1265,6 @@ func countBalls(_ lowLimit: Int, _ highLimit: Int) -> Int {
         
     return result
         
-}
-```
-
-### 1823. Find the Winner of the Circular Game
-
-Source: <https://leetcode.com/problems/find-the-winner-of-the-circular-game/>
-
-Difficulty: Medium
-
-```swift
-func findTheWinner(_ n: Int, _ k: Int) -> Int {
-
-    var arr = Array(1...n)
-    if k == 1 {
-        return arr[arr.count-1]
-    } else {
-        while arr.count != 1 {
-            for i in 1...(k-1) {
-                arr.append(arr.removeFirst())
-            }
-            arr.removeFirst()
-        }
-    }
-    
-    return arr[0]
-    
 }
 ```
 
@@ -2445,69 +2394,6 @@ func lastStoneWeight(_ stones: [Int]) -> Int {
         
 }
 ```
-
-### 347. Top K Frequent Elements
-
-Source: <https://leetcode.com/problems/top-k-frequent-elements/>
-
-Difficulty: Medium
-
-```swift
-func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
-        
-    var dict = [Int:Int]()
-    var result: [Int] = []
-    
-    for i in nums {
-        dict[i, default: 0] += 1
-    }
-        
-    let sorted = dict.sorted { $0.1 > $1.1 }
-        
-    for i in 0..<k {
-        result.append(sorted[i].key)
-    }
-        
-    return result
-        
-}
-```
-
-### 49. Group Anagrams
-
-Source: <https://leetcode.com/problems/group-anagrams/>
-
-Difficulty: Medium
-
-```swift
-func groupAnagrams(_ strs: [String]) -> [[String]] {
-
-    var temp = [String: [String]]()
-    
-    for i in 0..<strs.count {
-        let mytemp = String(strs[i].sorted())
-        temp[mytemp, default: []] += [strs[i]]
-    }
-        
-    return Array(temp.values)
-}
-```
-
-### 215. Kth Largest Element in an Array
-
-Source: <https://leetcode.com/problems/kth-largest-element-in-an-array/>
-
-Difficulty: Medium
-
-```swift
-func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
-
-    let sortedArray = nums.sorted(by: >)
-    return sortedArray[k-1]
-    
-}
-```
-
 ### 242. Valid Anagram
 
 Source: <https://leetcode.com/problems/valid-anagram/>
@@ -2518,39 +2404,6 @@ Difficulty: Easy
 func isAnagram(_ s: String, _ t: String) -> Bool {
 
     return String(s.sorted()) == String(t.sorted())
-    
-}
-```
-
-### 781. Rabbits in Forest
-
-Source: <https://leetcode.com/problems/rabbits-in-forest/>
-
-Difficulty: Medium
-
-```swift
-func numRabbits(_ answers: [Int]) -> Int {
-
-    var setForDictKey = Set(answers)
-    var result = 0
-    var dict = [(Int, Int)]()
-    
-    for i in setForDictKey {
-        let count = answers.filter { $0 == i }.count
-        dict.append((i, count))
-    }
-
-
-    for i in dict {
-        result += i.1 / (i.0 + 1) * (i.0 + 1)
-        if i.1 % (i.0 + 1) > 0 {
-            result += i.0 + 1
-        } else {
-            
-        }
-    }
-    
-    return result
     
 }
 ```
@@ -2788,30 +2641,6 @@ func isPalindrome(_ s: String) -> Bool {
         return true
     } else {
         return false
-    }
-    
-}
-```
-
-### 189. Rotate Array
-
-Source: <https://leetcode.com/problems/rotate-array/>
-
-Difficulty: Medium
-
-```swift
-func rotate(_ nums: inout [Int], _ k: Int) {
-
-    if k % nums.count > 0 {
-        for i in 1...(k % nums.count) {
-            nums.insert(nums.removeLast(), at: 0)
-        }
-    } else if nums.count == 1 {
-            
-    } else if k % nums.count == 0 {
-        
-    } else {
-        
     }
     
 }
