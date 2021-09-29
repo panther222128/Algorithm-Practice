@@ -1,7 +1,5 @@
 # Swift for Algorithm
 
----
-
 ## 문자와 문자열
 
 ### 문자열의 수정
