@@ -1,5 +1,6 @@
 ```
 func reverseWords(_ s: String) -> String {
+
     let words = s.components(separatedBy: " ").filter { $0 != "" }
     let reversedWords = Array(words.reversed())
         
@@ -15,5 +16,6 @@ func reverseWords(_ s: String) -> String {
     }
         
     return result
+    
 }
 ```
