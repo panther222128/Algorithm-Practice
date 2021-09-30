@@ -2394,6 +2394,64 @@ func lastStoneWeight(_ stones: [Int]) -> Int {
         
 }
 ```
+
+### 1945. Sum of Digits of String After Convert
+
+Source: <https://leetcode.com/problems/sum-of-digits-of-string-after-convert/>
+
+Difficulty: Easy
+
+```swift
+func sToString(_ input: String) -> String {
+        
+    let dict: [Character:String] = ["a":"1", "b":"2", "c":"3", "d":"4", "e":"5",
+                "f":"6", "g":"7", "h":"8", "i":"9", "j":"10",
+                "k":"11", "l":"12", "m":"13", "n":"14", "o":"15",
+                "p":"16", "q":"17", "r":"18", "s":"19", "t":"20",
+                "u":"21", "v":"22", "w":"23", "x":"24", "y":"25",
+                "z":"26"]
+        
+    var str = ""
+        
+    for i in input {
+        str.append(dict[i]!)
+    }
+        
+    return str
+        
+}
+    
+func compress(_ input: String) -> String {
+
+    var intResult = 0
+    for i in input {
+        intResult += Int(String(i))!
+    }
+    
+    return String(intResult)
+    
+}
+    
+func getLucky(_ s: String, _ k: Int) -> Int {
+        
+    if k == 1 {
+        let temp = sToString(s)
+        var result = 0
+        for i in temp {
+            result += Int(String(i))!
+        }
+        return result
+    } else {
+        var firstStep = sToString(s)
+        for i in 1...k {
+            firstStep = compress(firstStep)
+        }
+        return Int(firstStep)!
+    }
+        
+}
+```
+
 ### 242. Valid Anagram
 
 Source: <https://leetcode.com/problems/valid-anagram/>
