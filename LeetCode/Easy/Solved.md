@@ -2535,6 +2535,34 @@ func addDigits(_ num: Int) -> Int {
 }
 ```
 
+### 1869. Longer Contiguous Segments of Ones than Zeros
+
+Source: <https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros/>
+
+Difficulty: Easy
+
+```swift
+func checkZeroOnes(_ s: String) -> Bool {
+    
+    let oneArr = s.components(separatedBy: "0")
+    let zeroArr = s.components(separatedBy: "1")
+        
+    var countOne = [Int]()
+    var countZero = [Int]()
+    
+    for i in oneArr {
+        countOne.append(i.count)
+    }
+        
+    for i in zeroArr {
+        countZero.append(i.count)
+    }
+        
+    return countOne.max()! > countZero.max()!
+        
+}
+```
+
 ### 704. Binary Search
 
 Source: <https://leetcode.com/problems/binary-search/>
