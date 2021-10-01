@@ -2488,6 +2488,28 @@ func getMinDistance(_ nums: [Int], _ target: Int, _ start: Int) -> Int {
 }
 ```
 
+### 1287. Element Appearing More Than 25% In Sorted Array
+
+Source: <https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/>
+
+Difficulty: Easy
+
+```swift
+func findSpecialInteger(_ arr: [Int]) -> Int {
+        
+    var dictCount = [Int:Int]()
+        
+    for i in arr {
+        dictCount[i, default: 0] += 1
+    }
+        
+    let sorted = dictCount.sorted { $0.1 > $1.1 }
+        
+    return sorted[0].0
+        
+}
+```
+
 ### 704. Binary Search
 
 Source: <https://leetcode.com/problems/binary-search/>
