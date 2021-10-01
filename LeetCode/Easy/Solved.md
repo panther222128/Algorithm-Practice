@@ -2563,6 +2563,110 @@ func checkZeroOnes(_ s: String) -> Bool {
 }
 ```
 
+### 283. Move Zeroes
+
+Source: <https://leetcode.com/problems/move-zeroes/>
+
+Difficulty: Easy
+
+```swift
+func checkZeroOnes(_ s: String) -> Bool {
+    
+    let oneArr = s.components(separatedBy: "0")
+    let zeroArr = s.components(separatedBy: "1")
+    
+    var countOne = [Int]()
+    var countZero = [Int]()
+    
+    for i in oneArr {
+        countOne.append(i.count)
+    }
+    
+    for i in zeroArr {
+        countZero.append(i.count)
+    }
+    
+    return countOne.max()! > countZero.max()!
+    
+}
+```
+
+### 1624. Largest Substring Between Two Equal Characters
+
+Source: <https://leetcode.com/problems/largest-substring-between-two-equal-characters/>
+
+Difficulty: Easy
+
+```swift
+func maxLengthBetweenEqualCharacters(_ s: String) -> Int {
+    
+    let char = Array(s)
+    var esult = 0
+    var ind = 0
+    
+    while ind < char.count {
+        result = max(char.lastIndex(of: char[ind])! - ind, result)
+        ind += 1
+    }
+    
+    return result - 1
+    
+}
+```
+
+### 389. Find the Difference
+
+Source: <<https://leetcode.com/problems/find-the-difference/>
+
+Difficulty: Easy
+
+```swift
+func findTheDifference(_ s: String, _ t: String) -> Character {
+    
+    var charS = Array(s)
+    var charT = Array(t)
+    
+    while charT.count 1= 1 {
+        for i in charS {
+            if charT.contains(i) {
+                charS.remove(at: charS.firstIndex(of: i)!)
+                charT.remove(at: charT.firstIndex(of: i)!)
+            }
+        }
+    }
+    
+    return charT[0]
+    
+}
+```
+
+### 217. Contains Duplicate
+
+Source: <https://leetcode.com/problems/contains-duplicate/>
+
+Difficulty: Easy
+
+```swift
+func containsDuplicate(_ nums: [Int]) -> Bool {
+    
+    var dict = [Int:Int]()
+    var count = 0
+    
+    for i in nums {
+        dict[i, default: 0] += 1
+    }
+    
+    for (key, value) in dict {
+        if value > 1 {
+            count += 1
+        }
+    }
+    
+    return count != 0
+    
+}
+```
+
 ### 704. Binary Search
 
 Source: <https://leetcode.com/problems/binary-search/>
