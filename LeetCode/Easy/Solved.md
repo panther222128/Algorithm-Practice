@@ -2466,6 +2466,28 @@ func isAnagram(_ s: String, _ t: String) -> Bool {
 }
 ```
 
+### 1848. Minimum Distance to the Target Element
+
+Source: <https://leetcode.com/problems/minimum-distance-to-the-target-element/>
+
+Difficulty: Easy
+
+```swift
+func getMinDistance(_ nums: [Int], _ target: Int, _ start: Int) -> Int {
+        
+    var candidate = [Int]()
+        
+    for i in 0..<nums.count {
+        if nums[i] == target {
+            candidate.append(abs(i - start))
+        }
+    }
+        
+    return candidate.min()!
+    
+}
+```
+
 ### 704. Binary Search
 
 Source: <https://leetcode.com/problems/binary-search/>
