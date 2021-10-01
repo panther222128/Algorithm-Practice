@@ -2510,6 +2510,31 @@ func findSpecialInteger(_ arr: [Int]) -> Int {
 }
 ```
 
+### 258. Add Digits
+
+Source: https://leetcode.com/problems/add-digits/
+
+Difficulty: Easy
+
+```swift
+func addDigits(_ num: Int) -> Int {
+
+    var strNum = String(num)
+    
+    while strNum.count > 1 {
+        let charArr = Array(strNum)
+        var temp = 0
+        for i in charArr {
+            temp += Int(String(i))!
+        }
+        strNum = String(temp)
+    }
+    
+    return Int(strNum)!
+    
+}
+```
+
 ### 704. Binary Search
 
 Source: <https://leetcode.com/problems/binary-search/>
