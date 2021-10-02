@@ -2667,6 +2667,112 @@ func containsDuplicate(_ nums: [Int]) -> Bool {
 }
 ```
 
+### 896. Monotonic Array
+
+Source: <https://leetcode.com/problems/monotonic-array/>
+
+Difficulty: Easy
+
+```swift
+func isMonotonic(_ nums: [Int]) -> Bool {
+
+    let decreasing = nums.sorted(by: > )
+    let increasing = nums.sorted(by: < )
+    
+    if nums == decreasing || nums == increasing {
+        return true
+    } else {
+        return false
+    }
+    
+}
+```
+
+### 1422. Maximum Score After Splitting a String
+
+Source: <https://leetcode.com/problems/maximum-score-after-splitting-a-string/>
+
+Difficulty: Easy
+
+```swift
+func maxScore(_ s: String) -> Int {
+
+    let char = Array(s)
+    
+    var ind = 0
+    var result = 0
+    
+    while ind < s.count - 1 {
+        let zero = char[0...ind].filter { $0 == "0" }.count
+        let one = char[(ind + 1)...].filter { $0 == "1" }.count
+        result = max(zero + one, result)
+        ind += 1
+    }
+    
+    return result
+    
+}
+```
+
+### 268. Missing Number
+
+Source: <https://leetcode.com/problems/missing-number/>
+
+Difficulty: Easy
+
+```swift
+func missingNumber(_ nums: [Int]) -> Int {
+        
+    let count = nums.count
+        
+    var condition = 0
+        
+    for i in 0...count {
+        condition += i
+    }
+        
+    return condition - nums.reduce(0) { $0 + $1 }
+        
+}
+```
+
+### 1317. Convert Integer to the Sum of Two No-Zero Integers
+
+Source: <https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/>
+
+Difficulty: Easy
+
+```swift
+func isContainZero(_ input: Int) -> Bool {
+        
+    let char = Array(String(input))
+        
+    return char.contains("0")
+        
+}
+    
+func getNoZeroIntegers(_ n: Int) -> [Int] {
+        
+    var one = 1
+    var two = n - 1
+    var result = [Int]()
+        
+    while one < n {
+        if !isContainZero(one) && !isContainZero(two) {
+            result = [one, two]
+            break
+        } else {
+            result = []
+        }
+        one += 1
+        two -= 1
+    }
+        
+    return result
+        
+}
+```
+
 ### 704. Binary Search
 
 Source: <https://leetcode.com/problems/binary-search/>
