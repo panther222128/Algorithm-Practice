@@ -2795,6 +2795,98 @@ func search(_ nums: [Int], _ target: Int) -> Int {
 }
 ```
 
+### 1539. Kth Missing Positive Number
+
+Source: <https://leetcode.com/problems/kth-missing-positive-number/>
+
+Difficulty: Easy
+
+```swift
+func findKthPositive(_ arr: [Int], _ k: Int) -> Int {
+        
+    var temp = [Int]()
+        
+    for i in 1...(arr.count + k) {
+        if !arr.contains(i) {
+            temp.append(i)
+        }
+    }
+        
+    return temp[k - 1]
+    
+}
+```
+
+### 520. Detect Capital
+
+Source: <https://leetcode.com/problems/detect-capital/>
+
+Difficulty: Easy
+
+```swift
+func isAllUpper(_ input: String) -> Bool {
+        
+    if input == input.uppercased() {
+        return true
+    } else {
+        return false
+    }
+        
+}
+    
+func isAllLower(_ input: String) -> Bool {
+        
+    if input == input.lowercased() {
+        return true
+    } else {
+        return false
+    }
+        
+}
+    
+func isFirstUpper(_ input: String) -> Bool {
+        
+    let char = Array(input)
+        
+    if String(char[0]) == String(char[0]).uppercased() && String(char[1...]) == String(char[1...]).lowercased() {
+        return true
+    } else {
+        return false
+    }
+        
+}
+    
+func detectCapitalUse(_ word: String) -> Bool {
+        
+    if isAllUpper(word) || isAllLower(word) || isFirstUpper(word) {
+        return true
+    } else {
+        return false
+    }
+        
+}
+```
+
+### 1523. Count Odd Numbers in an Interval Range
+
+Source: <https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/>
+
+Difficulty: Easy
+
+```swift
+func countOdds(_ low: Int, _ high: Int) -> Int {
+        
+    let differ = high - low
+    
+    if high % 2 == 0 && low % 2 == 0 {
+        return differ / 2
+    } else {
+        return differ / 2 + 1
+    }
+        
+}
+```
+
 ### 121. Best Time to Buy and Sell Stock
 
 Source: <https://leetcode.com/problems/best-time-to-buy-and-sell-stock/>
