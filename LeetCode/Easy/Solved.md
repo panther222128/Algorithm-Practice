@@ -2999,6 +2999,34 @@ func mostCommonWord(_ paragraph: String, _ banned: [String]) -> String {
 }
 ```
 
+### 167. Two Sum II - Input array is sorted
+
+Source: <https://leetcode.com/problems/two-sum-ii-input-array-is-sorted>
+
+Difficulty: Easy
+
+```swift
+func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
+
+    var left = 0
+    var right = numbers.count - 1
+    
+    while numbers[left] + numbers[right] != target {
+        if numbers[left] + numbers[right] < target {
+            left += 1
+        } else if numbers[left] + numbers[right] > target {
+            right -= 1
+        }
+    }
+    
+    result.append(left + 1)
+    result.append(right + 1)
+    
+    return result
+    
+}
+```
+
 ### 234. Palindrome Linked List
 
 Source: <https://leetcode.com/problems/palindrome-linked-list/>
@@ -3025,6 +3053,31 @@ func isPalindrome(_ head: ListNode?) -> Bool {
     }
     
     return true
+    
+}
+```
+
+### 231. Power of Two
+
+Source: <https://leetcode.com/problems/power-of-two>
+
+Difficulty: Easy
+
+```swift
+func isPowerOfTwo(_ n: Int) -> Bool {
+
+    if n == 0 {
+        return false
+    }
+    
+    var temp = n
+    var arr = [Int]()
+    while temp != 0 {
+        arr.append(temp % 2)
+        temp = temp / 2
+    }
+    
+    return arr[arr.count - 1] == 1 && arr.reduce(0) { $0 + $1 }
     
 }
 ```
