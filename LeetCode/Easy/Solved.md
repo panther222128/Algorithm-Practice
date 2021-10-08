@@ -2909,6 +2909,30 @@ func maxProfit(_ prices: [Int]) -> Int {
 }
 ```
 
+### 1089. Duplicate Zeros
+
+Source: <https://leetcode.com/problems/duplicate-zeros/>
+
+Difficulty: Easy
+
+```swift
+func duplicateZeros(_ arr: inout [Int]) {
+    
+    var ind = 0
+    
+    while ind < arr.count {
+        if arr[ind] == 0 {
+            arr.insert(0, at: ind + 1)
+            arr.removeLast()
+            ind += 2
+        } else {
+            ind += 1
+        }
+    }
+    
+}
+```
+
 ### 225. Implement Stack using Queues
 
 Source: <https://leetcode.com/problems/implement-stack-using-queues/>
@@ -3023,6 +3047,30 @@ func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
     result.append(right + 1)
     
     return result
+    
+}
+```
+
+### 747. Largest Number At Least Twice of Others
+
+Source: <https://leetcode.com/problems/largest-number-at-least-twice-of-others/>
+
+Difficulty: Easy
+
+```swift
+func dominantIndex(_ nums: [Int]) -> Int {
+    
+    let filter = nums.filter { $0 != nums.max()! }
+    
+    var firstIndOfMax = nums.firstIndex(of: nums.max()!)!
+    
+    for i in filter {
+        if i * 2 > nums.max()! {
+            firstIndOfMax = -1
+        }
+    }
+    
+    return firstIndOfMax
     
 }
 ```
@@ -3151,6 +3199,27 @@ func isPalindrome(_ s: String) -> Bool {
         return true
     } else {
         return false
+    }
+    
+}
+```
+
+### 414. Third Maximum Number
+
+Source: <https://leetcode.com/problems/third-maximum-number/>
+
+Difficulty: Easy
+
+```swift
+func thirdMax(_ nums: [Int]) -> Int {
+    
+    let set = Set(nums)
+    let sorted = Array(set.sorted{ $0 > $1 })
+    
+    if sorted.count > 2 {
+        return sorted[2]
+    } else {
+        return sorted[0]
     }
     
 }
