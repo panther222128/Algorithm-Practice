@@ -384,7 +384,7 @@ func createTargetArray(_ nums: [Int], _ index: [Int]) -> [Int] {
 }
 ```
 
-### Count Items Matching a Rule
+### 1773. Count Items Matching a Rule
 
 Source: <https://leetcode.com/problems/count-items-matching-a-rule/>
 
@@ -1435,6 +1435,42 @@ func minSubsequence(_ nums: [Int]) -> [Int] {
         
     if Set(nums).count == 1 {
         return nums
+    }
+        
+    return result
+        
+}
+```
+
+### 338. Counting Bits
+
+Source: <https://leetcode.com/problems/counting-bits/>
+
+Difficulty: Easy
+
+```swift
+func binaryBits(_ input: Int) -> Int {
+        
+    var temp = input
+    var count = 0
+        
+    while temp != 0 {
+        if temp % 2 == 1 {
+            count += 1
+        }
+        temp = temp / 2
+    }
+        
+    return count
+        
+}
+    
+func countBits(_ n: Int) -> [Int] {
+        
+    var result = [Int]()
+        
+    for i in 0...n {
+        result.append(binaryBits(i))
     }
         
     return result
