@@ -6,6 +6,7 @@ Difficulty: Easy
 
 ```swift
 func birthdayCakeCandles(candles: [Int]) -> Int {
-    return candles.filter { $0 == candles.max() }.count
+    let maximumCandle = candles.max()
+    return candles.filter { $0 == maximumCandle }.count
 }
 ```
