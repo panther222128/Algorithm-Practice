@@ -649,6 +649,38 @@ func toLowerCase(_ s: String) -> String {
 }
 ```
 
+### 1323. Maximum 69 Number
+
+Source: <https://leetcode.com/problems/maximum-69-number/>
+
+Difficulty: Easy
+
+```swift
+func maximum69Number (_ num: Int) -> Int {
+    var temp = Array(String(num))
+    var changed = [Int]()
+    
+    if temp.filter({ $0 == "9" }).count == temp.count {
+        return num
+    }
+    
+    for i in 0..<temp.count {
+        if temp[i] == "6" {
+            temp[i] = "9"
+        } else if temp[i] == "9" {
+            temp[i] = "6"
+        }
+        guard let int = Int(String(temp)) else { return 0 }
+        changed.append(int)
+        temp = Array(String(num))
+    }
+    
+    guard let max = changed.max() else { return 0 }
+    
+    return max
+}
+```
+
 ### 1979. Find Greatest Common Divisor of Array
 
 Source: <https://leetcode.com/problems/find-greatest-common-divisor-of-array/>
