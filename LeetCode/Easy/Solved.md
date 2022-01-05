@@ -1267,6 +1267,25 @@ func heightChecker(_ heights: [Int]) -> Int {
 }
 ```
 
+### 2057. Smallest Index With Equal Value
+
+Source: <https://leetcode.com/problems/smallest-index-with-equal-value/>
+
+Difficulty: Easy
+
+```swift
+func smallestEqual(_ nums: [Int]) -> Int {
+    var result = -1
+    for i in 0..<nums.count {
+        if nums[i] % 10 == i % 10 {
+            result = i
+            break
+        }
+    }
+    return result
+}
+```
+
 ### 1742. Maximum Number of Balls in a Box
 
 Source: <https://leetcode.com/problems/maximum-number-of-balls-in-a-box/>
